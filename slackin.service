@@ -1,0 +1,10 @@
+[Unit]
+Description=Slackin Service
+
+[Service]
+# EnvironmentFile should reflect the location of the environment configuration file
+EnvironmentFile=/home/ubuntu/slackin/env.conf
+ExecStart=/usr/bin/slackin --channels "$SLACK_CHANNELS" --port $PORT $SLACK_SUBDOMAIN $SLACK_API_TOKEN $GOOGLE_CAPTCHA_SECRET $GOOGLE_CAPTCHA_SITEKEY
+
+[Install]
+WantedBy=multi-user.target
